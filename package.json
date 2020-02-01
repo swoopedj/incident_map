@@ -1,11 +1,11 @@
 {
   "name": "prominent_proj",
   "version": "0.1.0",
-  "private": true,
+  "description": "Incident map",
+  "main": "index.js",
   "dependencies": {
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.4.0",
-    "@testing-library/user-event": "^7.2.1",
+    "axios": "^0.19.2",
+    "google-map-react": "^1.1.5",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-scripts": "3.3.1"
@@ -15,9 +15,6 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
   },
   "browserslist": {
     "production": [
@@ -30,5 +27,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "proxy": "http://localhost:4000",
+  "devDependencies": {
+    "http-proxy-middleware": "^0.20.0"
   }
 }
