@@ -3,14 +3,20 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
+main {
+  margin: 3px;
+}
+
+.header {
+
+}
+
 .footer {
   width: 100%;
   height: 30%;
 }
 
 .map-component {
-  width: auto;
-  height: auto;
   border: black;
 }
 

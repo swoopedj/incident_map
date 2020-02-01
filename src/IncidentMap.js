@@ -1,6 +1,5 @@
 import React from 'react';
 
-import IncidentList from './components/IncidentList';
 import MapComponent from './components/MapComponent';
 import IncidentDetails from './components/IncidentDetails';
 
@@ -48,7 +47,6 @@ class IncidentMap extends React.Component {
     
     return (
       <main>
-        <IncidentList />
         <MapComponent incidentData={incidentData} />
         <IncidentDetails weatherData={weatherData} incidentData={incidentData} />
       </main>

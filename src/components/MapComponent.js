@@ -12,7 +12,7 @@ class MapComponent extends React.Component {
         lat: 37.5388,
         lng: -77.4336
       },
-      zoom: 11
+      zoom: 12
     };
 
   }
@@ -41,8 +41,7 @@ class MapComponent extends React.Component {
   render() {
 
     return (
-      <section className="map-component" style={{ height: '100vh', width: '100%' }}>
-        <span>map Component</span>
+      <section className="map-component" style={{ height: '75vh', width: '100%' }}>
         <GoogleMapReact
           bootstrapURLKeys={{ key: 'AIzaSyBiYN8zF0cHHcPaTaCRXETOM9njND2WVhI' }}
           defaultCenter={this.state.defaultCenter}
