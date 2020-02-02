@@ -4,11 +4,13 @@ body {
 }
 
 main {
-  margin: 3px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.header {
-
+.map-title {
+  text-align: center;
 }
 
 .footer {
@@ -18,9 +20,19 @@ main {
 
 .map-component {
   border: black;
+  margin-bottom: 5px;
 }
 
-.side-bar {
-  width: 20%;
+.details {
+  display: flex;
+  flex-direction: row;
+  align-content: space-between;
+  width: 100%;
 }
 
+.details-col {
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+  margin: 0 15px; 
+}

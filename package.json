@@ -28,7 +28,6 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "https://api.darksky.net",
   "devDependencies": {
     "http-proxy-middleware": "^0.20.0"
   }

@@ -3,22 +3,16 @@ import React from 'react'
 
 class IncidentDetails extends React.Component {
 
-  renderAddressInfo() {
-    if (this.props.incidentData) {
-      const { address } = this.props.incidentData;
-
-      return (
-          <span>{`Address: ${address.address_line1} ${address.city}, ${address.state}`}</span>
-      );
-    }
-  }
-
   renderIncidentInfo() {
     if (this.props.incidentData) {
-      const { description } = this.props.incidentData;
+      const { address, description } = this.props.incidentData;
 
       return (
-        <span>{`Event ID:  ${description.event_id}`}</span>
+        <div className="details-col">
+          <h4>Incident info:</h4>
+          <span>{`Address: ${address.address_line1} ${address.city}, ${address.state}`}</span>
+          <span>{`Event ID:  ${description.event_id}`}</span>
+        </div>
       );
     }
   }
@@ -28,7 +22,7 @@ class IncidentDetails extends React.Component {
       const { currently } = this.props.weatherData;
 
       return (
-        <div>
+        <div className="details-col">
           <h4>Weather:</h4>
           <span>Conditions: {currently.summary}</span>
           <span>Temperature: {currently.temperature}</span>
@@ -41,14 +35,9 @@ class IncidentDetails extends React.Component {
   render() {
 
     return (
-      <section className="details">
-        <div>
-          {this.renderAddressInfo()}
-        </div>
-        <div>
+      <section>
+        <div className="details">
           {this.renderIncidentInfo()}
-        </div>
-        <div>
           {this.renderWeatherInfo()}
         </div>
       </section>

@@ -47,6 +47,7 @@ class IncidentMap extends React.Component {
     
     return (
       <main>
+        <h2 className="map-title">{incidentData ? incidentData.fire_department.name : ''} -- Incident No: {incidentData ? incidentData.description.incident_number : ''}</h2>
         <MapComponent incidentData={incidentData} />
         <IncidentDetails weatherData={weatherData} incidentData={incidentData} />
       </main>

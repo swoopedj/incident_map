@@ -3,25 +3,33 @@ import GoogleMapReact from 'google-map-react';
 
 import Marker from './Marker';
 
+const defaultCenter = {
+  lat: 37.5388,
+  lng: -77.4336
+};
+
+const defaultZoom = 12;
+
+const markerStyles = {
+  height: '15px',
+  width: '15px',
+  borderRadius: '50%',
+  backgroundColor: 'green'
+}
+
 class MapComponent extends React.Component {
-  constructor() {
-    super();
-
-    this.state = {
-      defaultCenter: {
-        lat: 37.5388,
-        lng: -77.4336
-      },
-      zoom: 12
-    };
-
-  }
 
   placeIncidentMarker() {
     if(this.props.incidentData) {
-      const { address } = this.props.incidentData;
+      const { address, description } = this.props.incidentData;
       return (
-        <Marker lat={address.latitude} lng={address.longitude} style={{ height: '10px', width: '10px', backgroundColor: 'red'}} />
+        <Marker
+          lat={address.latitude}
+          lng={address.longitude}
+          incidentMarker
+          style={{ ...markerStyles, backgroundColor: 'red' }}
+          infoWindowData={{...address, ...description}}
+        />
       );
     }
   }
@@ -32,7 +40,13 @@ class MapComponent extends React.Component {
 
       return apparatus.map(app => {
         return (
-          <Marker key={app.car_id} lat={app.unit_status.dispatched.latitude} lng={app.unit_status.dispatched.longitude} style={{ height: '10px', width: '10px', backgroundColor: 'green'}} />
+          <Marker 
+            key={app.car_id} 
+            lat={app.unit_status.dispatched.latitude} 
+            lng={app.unit_status.dispatched.longitude} 
+            infoWindowData={app} 
+            style={{ ...markerStyles, backgroundColor: 'green' }}
+          />
         );
       });
     }
@@ -41,11 +55,11 @@ class MapComponent extends React.Component {
   render() {
 
     return (
-      <section className="map-component" style={{ height: '75vh', width: '100%' }}>
+      <section className="map-component" style={{ height: '75vh', width: '80%' }}>
         <GoogleMapReact
           bootstrapURLKeys={{ key: 'AIzaSyBiYN8zF0cHHcPaTaCRXETOM9njND2WVhI' }}
-          defaultCenter={this.state.defaultCenter}
-          defaultZoom={this.state.zoom}
+          defaultCenter={defaultCenter}
+          defaultZoom={defaultZoom}
         >
           {this.placeIncidentMarker()}
           {this.placeApparatusMarkers()}
